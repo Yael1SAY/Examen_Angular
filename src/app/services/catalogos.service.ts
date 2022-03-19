@@ -13,6 +13,10 @@ export class CatalogosService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  /**
+   * Metodo que llama un servicio para obtener el catalogo de categorias
+   * @returns 
+   */
   obtenerCatalogoCategorias(): Observable<any>{
     return this.http.get<any>(`${URL}list.php?c=list`)
     .pipe(
@@ -30,6 +34,10 @@ export class CatalogosService {
     );
   }
 
+  /**
+   * Metodo que llama un servicio para obtener el catalogo de areas
+   * @returns 
+   */
   obtenerCatalogoAreas(): Observable<any>{
     return this.http.get<any>(`${URL}list.php?a=list`)
     .pipe(

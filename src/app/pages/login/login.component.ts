@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Metodo que valida las credenciales del usuario
+   */
   login() {
     var auth = this.userService.login(this.user, this.password);
     if (!auth){

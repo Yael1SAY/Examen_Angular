@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit {
     this.email = localStorage.getItem('email');
   }
 
+  /**
+   * Metodo que obtiene aleatoriamente un platillo
+   */
   obtenerPlatilloDelDia(){
     this.bienvenidaService.obtenerPlatiloDelDia().subscribe(r => {
       this.platilloDelDia = r.meals[0];
@@ -37,6 +40,9 @@ export class HomeComponent implements OnInit {
     } )
   }
 
+  /**
+   * Metodo que abre el modal de descripcion del platillo
+   */
   openDialog() {
     //console.log("Respuesta de Home: ", this.platilloDelDia)
     const dialogRef = this.dialog.open(PlatilloDescripcionComponent, {
@@ -48,10 +54,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /**
+   * Metodo que permite cambiar la imagen de perfil (sin implementar)
+   */
   cambiarImagen() {
     console.log("Cambiando imagen de perfil")
   }
 
+  /**
+   * Metodo que abre un modal para actualizar perfil de usuario (sin implementar)
+   */
   openDialogactualizarPerfil() {
   }
   

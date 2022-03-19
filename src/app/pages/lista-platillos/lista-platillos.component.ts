@@ -43,6 +43,9 @@ export class ListaPlatillosComponent implements OnInit {
     this.obtenerPlatillosPorIngrediente();
   }
 
+  /**
+   * Metodo que obtine los platillos por ingrediente
+   */
   obtenerPlatillosPorIngrediente() {
     this.bienvenidaServices.obtenerPaltillosPorIngrediete(this.ingrediente?.strIngredient!).subscribe(r => {
       this.platillos = r.meals;
@@ -50,6 +53,10 @@ export class ListaPlatillosComponent implements OnInit {
     })
   }
 
+  /**
+   * Metodo que abre un modal para visualizar la descripcion de un platillo seleccionado
+   * @param platillo 
+   */
   openDialog(platillo: any) {
     //console.log("Paltillo: ", platillo);
     const dialogRef = this.dialog.open(PlatilloDescripcionComponent, {

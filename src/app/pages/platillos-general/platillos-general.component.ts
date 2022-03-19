@@ -46,12 +46,19 @@ export class PlatillosGeneralComponent implements OnInit {
     this.obtenerPaltillosRndom();
   }
 
+  /**
+   * Metodo que obtiene el catalogo de categorias
+   */
   obtenerCategorias() {
     this.catalogoServices.obtenerCatalogoCategorias().subscribe(r => {
       this.categorias = r.meals;
       //console.log("Categorias: ", this.categorias);
     })
   }
+
+  /**
+   * Metodo que obtiene el catalogo de areas
+   */
   obtenerAreas() {
     this.catalogoServices.obtenerCatalogoAreas().subscribe(r => {
       this.areas = r.meals;
@@ -59,6 +66,10 @@ export class PlatillosGeneralComponent implements OnInit {
     })
   }
 
+  /**
+   * Metodo que obtiene los platillos filtrados por area
+   * @param event 
+   */
   obtenerPlatillosPorArea(event: any) {
     console.log("event Area: ", event);
     this.categoria = "";
@@ -69,6 +80,10 @@ export class PlatillosGeneralComponent implements OnInit {
     })
   }
 
+  /**
+   * Metodo que obtiene platillos filtrado por categoria
+   * @param event 
+   */
   obtenerPlatillosPorCategoria(event: any) {
     this.platillos = [];
     this.area = "";
@@ -78,12 +93,19 @@ export class PlatillosGeneralComponent implements OnInit {
     })
   }
 
+  /**
+   * Metodo que ontiene 10 platillos al azar
+   */
   obtenerPaltillosRndom() {
     this.bienvenidaSetvice.obtenerPlatillosRandom().subscribe(r => {
       //console.log("Platillos Random: ", r);
     })
   }
 
+  /**
+   * Metodo que abre un modal para visualizar la descripcion del platillo
+   * @param platillo 
+   */
   openDialog(platillo: any) {
     //console.log("Paltillo: ", platillo);
     const dialogRef = this.dialog.open(PlatilloDescripcionComponent, {

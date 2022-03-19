@@ -20,6 +20,9 @@ export class IngredientesPopularesComponent implements OnInit {
     this.obtenerIngredientes();
   }
 
+  /**
+   * Metodo que obtine la lista de ingredientes
+   */
   obtenerIngredientes() {
     this.ingredientesService.obtenerListaIngredientes().subscribe(r => {
       this.ingredientes = r.meals;
@@ -27,6 +30,10 @@ export class IngredientesPopularesComponent implements OnInit {
     })
   }
 
+  /**
+   * Metodo que abre un modal para enlistar los platillos por ingrediente
+   * @param ingrediente 
+   */
   openDialog(ingrediente: Ingrediente): void {
     //console.log("Ingrediente: ", ingrediente)
     const dialogRef = this.dialog.open(ListaPlatillosComponent, {

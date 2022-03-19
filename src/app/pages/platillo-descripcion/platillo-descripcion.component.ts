@@ -28,6 +28,11 @@ export class PlatilloDescripcionComponent implements OnInit {
 
   }
 
+  /**
+   * Metodo que remplaza una cadena de caracteres
+   * @param cadena 
+   * @returns 
+   */
   remplazarCadena(cadena: string){
     const str = cadena;
     const nuevaStr = str?.replace("watch?v=", "embed/");
@@ -35,15 +40,15 @@ export class PlatilloDescripcionComponent implements OnInit {
     return nuevaStr;
   }
 
+  /**
+   * Metodo que obtine un platillo por su id
+   * @param idPaltillo 
+   */
   obtenerPlatilloPorId(idPaltillo: string){
     this.bienvenidaServices.obtenerPlatiloPorId(idPaltillo).subscribe(r => {
       this.meal = r.meals[0];
       //console.log("respuesta de lista Platillo: ", this.meal)
     })
   }
-
-  // photoURL() {
-  //   return this.sanitizer.bypassSecurityTrustUrl(this.mediaItems[1].url);
-  // }
 
 }

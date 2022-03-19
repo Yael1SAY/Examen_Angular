@@ -17,6 +17,9 @@ export class HeaderComponent implements OnInit {
     console.log("authenticated: ", this.authenticated);
   }
 
+  /**
+   * Metodo que cierra sesion
+   */
   logout() {
     console.log("Cerro sesion con exito")
     localStorage.removeItem('authenticated');

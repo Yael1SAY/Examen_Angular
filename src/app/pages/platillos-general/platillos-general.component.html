@@ -7,7 +7,7 @@
          <div class="row">
              <div class="col-6">
                 <mat-form-field appearance="fill">
-                    <mat-label>Categorias</mat-label>
+                    <mat-label>Categories</mat-label>
                     <mat-select [(ngModel)]="categoria" (selectionChange)="obtenerPlatillosPorCategoria($event.value)" >
                       <mat-option *ngFor="let categoria of categorias" [value]="categoria.strCategory">
                         {{categoria.strCategory}}

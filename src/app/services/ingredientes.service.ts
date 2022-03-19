@@ -13,39 +13,43 @@ export class IngredientesService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  /**
+   * Metodo que llama un servicio para obtener la lista de platillos filtrado por ingrediente
+   * @returns 
+   */
   obtenerPlatillosPorIngrediente(): Observable<any>{
     return this.http.get<any>(`${URL}filter.php?i=chicken_breast`)
     .pipe(
       catchError(e =>{
         if(e.status==0){
           this.router.navigate(['/login']);
-          //swal.fire("Servicio fuera de linea", 'No es posible conectar al servicio, contacte al administrador','error');
           return throwError(() => e);
         }
-        if(e.status==401){//realiza la validacion cuando no se a autenticado
+        if(e.status==401){
           this.router.navigate(['/login'])
           return throwError(() => e);
         }
-        //return map(response => response as Comprador[])
         return throwError(() => e);
       })
     );
   }
 
+  /**
+   * Metodo que llama un servicio para obtener la lista de ingredientes
+   * @returns 
+   */
   obtenerListaIngredientes(): Observable<any>{
     return this.http.get<any>(`${URL}list.php?i=list`)
     .pipe(
       catchError(e =>{
         if(e.status==0){
           this.router.navigate(['/login']);
-          //swal.fire("Servicio fuera de linea", 'No es posible conectar al servicio, contacte al administrador','error');
           return throwError(() => e);
         }
-        if(e.status==401){//realiza la validacion cuando no se a autenticado
+        if(e.status==401){
           this.router.navigate(['/login'])
           return throwError(() => e);
         }
-        //return map(response => response as Comprador[])
         return throwError(() => e);
       })
     );
