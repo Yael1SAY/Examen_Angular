@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Dish of the day</h2>
+<mat-dialog-content class="mat-typography">
+    <h3>{{this.meal?.strMeal}}</h3>
+    <p>Learn one way to build applications with Angular and reuse your code and abilities to build
+        apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
+    <div style="text-align: center;">
+        <img src="{{this.meal?.strMealThumb}}" alt="" style="width: 200px; height: 200px;">
+    </div>
+
+    <h3>Ingredients</h3>
+    <ul>
+        <li *ngIf="this.meal?.strIngredient1 != ''">{{this.meal?.strIngredient1}}</li>
+        <li *ngIf="this.meal?.strIngredient2 != ''">{{this.meal?.strIngredient2}}</li>
+        <li *ngIf="this.meal?.strIngredient3 != ''">{{this.meal?.strIngredient3}}</li>
+        <li *ngIf="this.meal?.strIngredient4 != ''">{{this.meal?.strIngredient4}}</li>
+        <li *ngIf="this.meal?.strIngredient5 != ''">{{this.meal?.strIngredient5}}</li>
+        <li *ngIf="this.meal?.strIngredient6 != ''">{{this.meal?.strIngredient6}}</li>
+        <li *ngIf="this.meal?.strIngredient7 != ''">{{this.meal?.strIngredient7}}</li>
+        <li *ngIf="this.meal?.strIngredient8 != ''">{{this.meal?.strIngredient8}}</li>
+        <li *ngIf="this.meal?.strIngredient9 != ''">{{this.meal?.strIngredient9}}</li>
+        <li *ngIf="this.meal?.strIngredient10 != ''">{{this.meal?.strIngredient10}}</li>
+        <li *ngIf="this.meal?.strIngredient11 != ''">{{this.meal?.strIngredient11}}</li>
+        <li *ngIf="this.meal?.strIngredient12 != ''">{{this.meal?.strIngredient12}}</li>
+        <li *ngIf="this.meal?.strIngredient13 != ''">{{this.meal?.strIngredient13}}</li>
+        <li *ngIf="this.meal?.strIngredient14 != ''">{{this.meal?.strIngredient14}}</li>
+        <li *ngIf="this.meal?.strIngredient15 != ''">{{this.meal?.strIngredient15}}</li>
+        <li *ngIf="this.meal?.strIngredient16 != ''">{{this.meal?.strIngredient16}}</li>
+        <li *ngIf="this.meal?.strIngredient17 != ''">{{this.meal?.strIngredient17}}</li>
+        <li *ngIf="this.meal?.strIngredient18 != ''">{{this.meal?.strIngredient18}}</li>
+        <li *ngIf="this.meal?.strIngredient19 != ''">{{this.meal?.strIngredient19}}</li>
+        <li *ngIf="this.meal?.strIngredient20 != ''">{{this.meal?.strIngredient20}}</li>
+
+    </ul>
+
+    <h3>Instructions</h3>
+    <p style="text-align: justify;">{{this.meal?.strInstructions}}</p>
+
+    <!-- <div style="text-align: center;">
+        <iframe width="560" height="315" src={{youtubeEmbed}} frameborder="0" 
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+    </div> -->
+
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

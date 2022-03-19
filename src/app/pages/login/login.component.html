@@ -1,0 +1,56 @@
+<br>
+<br>
+<br>
+<button type="button" pButton pRipple label="Error" class="p-button-success mb-2"></button>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="form-group col-sm-4">
+    <div class="card text-center" style="width: 100%">
+      <div class="container"></div>
+      <br><br>
+      <img src="./assets/img/logo-TheMeal.png" class="img-responsive" id="imgStyle" [routerLink]="'/pages/home'">
+      <br><br>
+      <div>
+        <p id="titulo">{{titulo}}</p>
+      </div>
+
+      <div class="card-body" style="text-align: center;">
+        <form method="post">
+          <div class="form-group col-sm-12">
+            <div style="font-size: 13px;">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>User</mat-label>
+                <input matInput [(ngModel)]="user" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-group col-sm-12">
+            <div style="font-size: 13px;">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="password" type="password" required
+                  id="password" name="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error></mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button (click)="login()"
+              class="btn btn-block btn-rounded btn-success waves-effect waves-light example-full-width"
+              id="cssButtonIngresar">
+              <i class="mdi mdi-login"></i>
+              Sign in
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>
+    Dishes containing the ingredient</h2>
+<mat-dialog-content class="mat-typography">
+    <p-carousel [value]="platillos" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+        <ng-template let-platillo pTemplate="item" style="width: 80%;">
+            <div class="product-item">
+                <div class="product-item-content">
+                    <div class="mb-3">
+                        <img src="{{platillo.strMealThumb}}" (click)="openDialog(platillo)" [alt]="platillo.name" class="product-image" />
+                    </div>
+                    <div>
+                        <h4 class="mb-1">{{platillo.strMeal}}</h4>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>
+
+<!-- <div class="card" style="padding: 5%;">
+    <div class="card-title">
+        <h3>List of ingredients</h3>
+    </div>
+<h2 mat-dialog-title>
+Dishes containing the ingredient</h2>
+<mat-dialog-content class="mat-typography">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Meal</th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let platillo of platillos; let i= index;">
+                <th scope="row">{{i+1}}</th>
+                <td>{{platillo.strMeal}}</td>
+                <td><img src="{{platillo.strMealThumb}}" alt="" style="height: 250px; width: 250px;"></td>
+                <td>
+                    <button mat-icon-button class="example-icon favorite-icon"
+                        aria-label="Example icon-button with heart icon" (click)="openDialog(platillo)">
+                        <mat-icon>restaurant_menu</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+     -->

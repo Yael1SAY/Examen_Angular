@@ -1,0 +1,56 @@
+<app-header></app-header>
+<div class="card" style="padding: 5%;">
+    <div class="card-title">
+        <h3>List of ingredients</h3>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ingredient</th>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ingrediente of ingredientes; let i= index;">
+                <th scope="row">{{i+1}}</th>
+                <td>{{ingrediente.strIngredient}}</td>
+                <td>{{ingrediente.strDescription}}</td>
+                <td>{{ingrediente.strType}}</td>
+                <td>
+                    <button mat-icon-button class="example-icon favorite-icon"
+                        aria-label="Example icon-button with heart icon" (click)="openDialog(ingrediente)">
+                        <mat-icon>restaurant_menu</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <table mat-table [dataSource]="ingredientes" class="mat-elevation-z8 demo-table">
+        <ng-container matColumnDef="Ingredient">
+          <th mat-header-cell *matHeaderCellDef>Ingredient</th>
+          <td mat-cell *matCellDef="let element">{{element.strIngredient}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let element">{{element.strDescription}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Type">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let element">{{element.strType}}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-row
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table> -->
+</div>
