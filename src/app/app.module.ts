@@ -14,6 +14,8 @@ import { HeaderComponent } from './pages/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PlatilloDescripcionComponent } from './pages/platillo-descripcion/platillo-descripcion.component';
 import { IngredientesPopularesComponent } from './pages/ingredientes-populares/ingredientes-populares.component';
+import { ListaPlatillosComponent } from './pages/lista-platillos/lista-platillos.component';
+import { PlatillosGeneralComponent } from './pages/platillos-general/platillos-general.component';
 
 /** Angular Material */
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,21 +27,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { ListaPlatillosComponent } from './pages/lista-platillos/lista-platillos.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 /**Prime NG */
 import {AccordionModule} from 'primeng/accordion'; 
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
-import { PlatillosGeneralComponent } from './pages/platillos-general/platillos-general.component';
 //import {ToastModule} from 'primeng/toast';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pages/home', pathMatch: 'full' },
   { path: 'pages/home', component: HomeComponent },
   { path: 'pages/login', component: LoginComponent },
-  { path: 'pages/ingredientes-populares', component: IngredientesPopularesComponent }
+  { path: 'pages/ingredientes-populares', component: IngredientesPopularesComponent },
+  { path: 'pages/platillos-general', component: PlatillosGeneralComponent }
 ]
 
 @NgModule({
@@ -73,6 +75,7 @@ const routes: Routes = [
     AccordionModule,
     CarouselModule,
     ButtonModule,
+    MatSelectModule,
     //ToastModule
   ],
   providers: [

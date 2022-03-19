@@ -1,1 +1,59 @@
-<p>platillos-general works!</p>
+<app-header></app-header>
+
+<div class="row" style="padding: 15px;">
+    <div class="col-12">
+     <div class="card" style="padding: 15px;">
+        <h1>Meals list</h1>
+         <div class="row">
+             <div class="col-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Categorias</mat-label>
+                    <mat-select [(ngModel)]="categoria" (selectionChange)="obtenerPlatillosPorCategoria($event.value)" >
+                      <mat-option *ngFor="let categoria of categorias" [value]="categoria.strCategory">
+                        {{categoria.strCategory}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+             </div>
+             <div class="col-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Areas</mat-label>
+                    <mat-select [(ngModel)]="area" (selectionChange)="obtenerPlatillosPorArea($event.value)">
+                      <mat-option *ngFor="let area of areas" [value]="area.strArea">
+                        {{area.strArea}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Meal</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let platillo of platillos; let i= index;">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{platillo.strMeal}}</td>
+                                <td><img src="{{platillo.strMealThumb}}" alt="" style="height: 250px; width: 250px;"></td>
+                                <td>
+                                    <button mat-icon-button class="example-icon favorite-icon"
+                                        aria-label="Example icon-button with heart icon" (click)="openDialog(platillo)">
+                                        <mat-icon>restaurant_menu</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+         </div>
+     </div>
+    </div>
+</div>
