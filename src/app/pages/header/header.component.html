@@ -1,22 +1,25 @@
 <p>
-    <mat-toolbar>
-      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"> -->
-        <img src="./assets/img/logo-TheMeal.png" [routerLink]="'/pages/home'"/>
-        <button mat-button [routerLink]="'/pages/ingredientes-populares'">Ingredientes Populares</button>
-        <button mat-button [routerLink]="'/pages/platillos-general'">Platillos</button>
-        <!-- <button mat-button [routerLink]="'#'">Perfil de usuario</button> -->
-        <!-- <mat-icon>menu</mat-icon> -->
-      <!-- </button> -->
-      <!-- <span>My App</span> -->
-      <span class="example-spacer"></span>
-      <button mat-button [routerLink]="'/pages/login'">Sign in</button>
-      <button mat-button>Sign up</button>
-    </mat-toolbar>
-  </p>
-  
-  
-  
-  <!-- <p-menubar>
+  <mat-toolbar>
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"> -->
+    <img src="./assets/img/logo-TheMeal.png" [routerLink]="'/pages/home'" />
+    <div *ngIf="authenticated">
+      <button mat-button [routerLink]="'/pages/ingredientes-populares'">Popular Ingredients</button>
+      <button mat-button [routerLink]="'/pages/platillos-general'">Meals</button>
+    </div>
+    <!-- <button mat-button [routerLink]="'#'">Perfil de usuario</button> -->
+    <!-- <mat-icon>menu</mat-icon> -->
+    <!-- </button> -->
+    <!-- <span>My App</span> -->
+    <span class="example-spacer"></span>
+    <button *ngIf="!authenticated" mat-button [routerLink]="'/pages/login'">Sign in</button>
+    <button *ngIf="!authenticated" mat-button>Sign up</button>
+    <button *ngIf="authenticated" mat-button (click)="logout()">Sign out</button>
+  </mat-toolbar>
+</p>
+
+
+
+<!-- <p-menubar>
       <ng-template pTemplate="start">
         <a class="navbar-brand" href="pages/inicio">
           <img src="./assets/img/logo-TheMeal.png" style="height: 60px; width: 150px;" />
@@ -48,8 +51,8 @@
         </form>
       </div>
     </p-menubar> -->
-  
-  <!-- <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+
+<!-- <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
       <p class="titulo">Menú</p>
       <hr class="m-t-0 m-b-10">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">

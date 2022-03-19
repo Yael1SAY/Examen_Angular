@@ -98,4 +98,21 @@ export class BienvenidaService {
     );
   }
 
+  obtenerPlatillosRandom(): Observable<any>{
+    return this.http.get<any>(`${URL}randomselection.php`)
+    .pipe(
+      catchError(e =>{
+        if(e.status==0){
+          this.router.navigate(['/login']);
+          return throwError(() => e);
+        }
+        if(e.status==401){
+          this.router.navigate(['/login'])
+          return throwError(() => e);
+        }
+        return throwError(() => e);
+      })
+    );
+  }
+
 }

@@ -1,15 +1,53 @@
 <app-header></app-header>
-<div style="text-align: center;">
-<mat-card style="align-content: center;">
-    <mat-card-title>MENU DEL DIA</mat-card-title><br>
-    <mat-card-subtitle>
-        <p>{{platilloDelDia?.strMeal}}</p>
-        <img src={{platilloDelDia?.strMealThumb}} alt="" style="width: 380px; height: 380px;" (click)="openDialog()">
-    </mat-card-subtitle>
-    <p>{{platilloDelDia?.strYoutube}}</p>
-    <!-- <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions> -->
-  </mat-card>
+<div class="card" style="padding: 15px;">
+  <div class="row">
+
+
+    <div *ngIf="authenticated" class="col-4">
+        <div class="card" class="shadow p-3 mb-5 bg-body rounded">
+            <div class="card-title" style="text-align: center;">
+                <div class="container">
+                    <div class="conatiner-body" [ngStyle]="{'background-image':'url(' + idImagen + ')'}">
+                        <div id="id-body" (click)="cambiarImagen()">
+                            <i class="bi bi-camera-fill" id="id-icono" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <p style="color: darkgray;">Nombre: <b>{{name}} {{lastname}}</b></p>
+                </div>
+                <div class="row">
+                    <p style="color: darkgray;">E-mail: <b>{{email}}</b></p>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button id="idButtonPrimary" class="mat-form-full-width" style="margin-top: 6px"
+                            mat-raised-button (click)="openDialogactualizarPerfil()">
+                            <mat-icon>edit</mat-icon>
+                            Actualizar perfil
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-8">
+      <div style="text-align: center;">
+        <mat-card style="align-content: center;">
+          <mat-card-title>Today's menu</mat-card-title><br>
+          <mat-card-subtitle>
+            <p>{{platilloDelDia?.strMeal}}</p>
+            <img src={{platilloDelDia?.strMealThumb}} alt="" style="width: 380px; height: 380px;"
+              (click)="openDialog()">
+          </mat-card-subtitle>
+          <!-- <p>{{platilloDelDia?.strYoutube}}</p> -->
+          <!-- <a href={{platilloDelDia?.strYoutube}}><img src="../../../assets/img/YouTube.png" style="width: 35px; height: 35px;"></a> -->
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
 </div>

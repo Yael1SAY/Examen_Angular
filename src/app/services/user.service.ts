@@ -19,12 +19,15 @@ export class UserService {
    * @param password 
    * @returns 
    */
-   public login(user: string, password: string): boolean {
-    var authenticated: boolean = false
+   public login(user: string, password: string): string {
+    var authenticated: string = "false"
     if(user===USUARIO.user && password===USUARIO.password){
-      authenticated = true;
-      sessionStorage.setItem('authenticated', JSON.stringify(authenticated));
-      console.log("Inicio sesion con exito");
+      authenticated = "true";
+      localStorage.setItem('authenticated', authenticated);
+      localStorage.setItem('user', USUARIO.name);
+      localStorage.setItem('lastname', USUARIO.lastname);
+      localStorage.setItem('email', USUARIO.email);
+      //console.log("Inicio sesion con exito");
       this.router.navigate(['pages/home']);
     }
     else {

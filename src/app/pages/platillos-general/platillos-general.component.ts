@@ -17,13 +17,33 @@ export class PlatillosGeneralComponent implements OnInit {
   categoria: string = "";
   area: string = "";
   platillos: Meal[] = [];
+  responsiveOptions;
 
   constructor(private catalogoServices: CatalogosService, private bienvenidaSetvice: BienvenidaService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) { 
+      this.responsiveOptions = [
+        {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 3
+        },
+        {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 2
+        },
+        {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+        }
+      ];
+    }
 
   ngOnInit(): void {
     this.obtenerCategorias();
     this.obtenerAreas();
+    this.obtenerPaltillosRndom();
   }
 
   obtenerCategorias() {
@@ -44,7 +64,7 @@ export class PlatillosGeneralComponent implements OnInit {
     this.categoria = "";
     this.platillos = [];
     this.bienvenidaSetvice.obtenerPlatiloPorArea(event).subscribe(r => {
-      console.log("Platillos por area" , r.meals);
+      //console.log("Platillos por area" , r.meals);
       this.platillos = r.meals;
     })
   }
@@ -53,8 +73,14 @@ export class PlatillosGeneralComponent implements OnInit {
     this.platillos = [];
     this.area = "";
     this.bienvenidaSetvice.obtenerPlatiloPorCategoria(this.categoria).subscribe(r => {
-      console.log("Platillos por Categoria" , r.meals);
+      //console.log("Platillos por Categoria" , r.meals);
       this.platillos = r.meals;
+    })
+  }
+
+  obtenerPaltillosRndom() {
+    this.bienvenidaSetvice.obtenerPlatillosRandom().subscribe(r => {
+      //console.log("Platillos Random: ", r);
     })
   }
 
